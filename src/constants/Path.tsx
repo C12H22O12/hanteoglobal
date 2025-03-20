@@ -16,7 +16,7 @@ export type PathElement = {
 
 // TODO : path 수정
 export const PATH: Record<PathKey, PathElement> = {
-  CHART: { text: "차트", path: "/chart" },
+  CHART: { text: "차트", path: "/" },
   WHOOK: { text: "Whook", path: "/whook" },
   EVENT: { text: "이벤트", path: "/event" },
   NEWS: { text: "뉴스", path: "/news" },
