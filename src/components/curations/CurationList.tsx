@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import Arrow from "public/footer-arrow.png";
+import CurationElement from "./CurationElement";
 
 const CurationList = () => {
   return (
     <ListContainer>
+      <ListTitle>콘텐츠 큐레이션 제목</ListTitle>
       <ElementWrapper>
-        <ListTitle>콘텐츠 큐레이션 제목</ListTitle>
+        {Array.from({ length: 8 }, (_, idx) => (
+          <CurationElement key={idx} idx={idx} />
+        ))}
       </ElementWrapper>
       <ListFooter>
         <img src={Arrow} alt="Footer Arrow" width={16} />
@@ -30,9 +34,10 @@ const ElementWrapper = styled.div`
   gap: 1rem;
 
   width: 100%;
-  padding: 8px 12px;
+  padding: 0 12px 8px 12px;
 
   background-color: #e0e0e0;
+  box-sizing: border-box;
 `;
 
 const ListTitle = styled.div`
@@ -46,5 +51,5 @@ const ListContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: #d4d4d4;
+  background-color: #e0e0e0;
 `;
