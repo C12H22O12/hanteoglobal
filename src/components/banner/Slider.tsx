@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import Item from "./Item";
+import axios from "axios";
+import "@/mocks/banners";
 
 const Slider = () => {
+  axios.get("/banners").then((response) => {
+    console.log(response);
+  });
+
   return (
     <SliderContainer>
       <SliderWrapper>
