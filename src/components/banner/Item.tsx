@@ -1,12 +1,31 @@
-import { Banners } from "@/mocks/banners";
 import styled from "styled-components";
 import Bedge from "./Bedge";
+import { Banners } from "@/mocks/banners";
+import { MouseEvent } from "react";
 
-const Item = ({ imgSrc, step, title, moveTo }: Banners) => {
-  const handleMove = () => window.open(moveTo);
+interface ItemProps extends Banners {
+  idx: number;
+  handleCurPage: (idx: number) => void;
+}
+
+const Item = ({
+  idx,
+  handleCurPage,
+  imgSrc,
+  step,
+  title,
+  moveTo,
+}: ItemProps) => {
+  const handleMove = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    e.stopPropagation();
+    window.open(moveTo);
+  };
+  const handleSelect = () => handleCurPage(idx);
 
   return (
-    <ItemWrapper>
+    <ItemWrapper className="item" onClick={handleSelect}>
       <ItemImgContainer>
         <Bedge step={step} />
         <img src={imgSrc} />
@@ -14,7 +33,7 @@ const Item = ({ imgSrc, step, title, moveTo }: Banners) => {
       <ItemBottomContainer>
         <ItemTitleContainer>
           <ItemTitle>{title}</ItemTitle>
-          <ItemButton onClick={handleMove}>투표하기</ItemButton>
+          <ItemButton onClick={(e) => handleMove(e)}>투표하기</ItemButton>
         </ItemTitleContainer>
         <ItemDate>It will be put date here</ItemDate>
       </ItemBottomContainer>
@@ -84,6 +103,8 @@ const ItemImgContainer = styled.div`
 const ItemWrapper = styled.div`
   display: grid;
   grid-template-rows: 7fr 3fr;
+  justify-content: center;
+  align-items: center;
 
   width: 90dvw;
   height: 200px;
@@ -95,4 +116,6 @@ const ItemWrapper = styled.div`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 
   overflow: hidden;
+
+  scroll-snap-align: center;
 `;
