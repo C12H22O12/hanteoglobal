@@ -91,15 +91,18 @@ const ItemImgContainer = styled.div`
   }
 `;
 
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.button`
   display: grid;
   grid-template-rows: 7fr 3fr;
 
   width: 90dvw;
   height: 200px;
+  padding: 0;
 
-  border: solid 1px #ccc;
+  border:none;
   border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 
   overflow: hidden;
 `;
