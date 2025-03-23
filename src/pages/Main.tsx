@@ -1,13 +1,20 @@
+import { Banner } from "@/components/banner";
 import CurationList from "@/components/curations/CurationList";
 import Header from "@/components/Header";
+import styled from "styled-components";
 
 const Main = () => {
   return (
-    <div>
+    <MainContainer>
       <Header />
+      <Banner.Slider />
       <CurationList />
-    </div>
+    </MainContainer>
   );
 };
 
 export default Main;
+
+const MainContainer = styled.div`
+  width: 100dvw;
+`
