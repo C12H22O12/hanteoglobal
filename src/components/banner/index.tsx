@@ -1,5 +1,7 @@
-import Slider from "./Slider";
+import Body from "./Body";
+import Item from "./Item";
 
 export const Banner = {
-  Slider : Slider
-}
+  Body: Body,
+  Item: Item
+};

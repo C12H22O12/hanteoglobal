@@ -1,16 +1,20 @@
+import { Banners } from "@/mocks/banners";
 import styled from "styled-components";
+import Bedge from "./Bedge";
 
-const Item = () => {
+const Item = ({ imgSrc, step, title, moveTo }: Banners) => {
+  const handleMove = () => window.open(moveTo);
+
   return (
     <ItemWrapper>
       <ItemImgContainer>
-        <ItemBedge>진행 중</ItemBedge>
-        <img src="https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg" />
+        <Bedge step={step} />
+        <img src={imgSrc} />
       </ItemImgContainer>
       <ItemBottomContainer>
         <ItemTitleContainer>
-          <ItemTitle>[M COUNTDOWN]10월 2주차 엠카 사전 투표</ItemTitle>
-          <ItemButton>투표하기</ItemButton>
+          <ItemTitle>{title}</ItemTitle>
+          <ItemButton onClick={handleMove}>투표하기</ItemButton>
         </ItemTitleContainer>
         <ItemDate>It will be put date here</ItemDate>
       </ItemBottomContainer>
@@ -61,20 +65,6 @@ const ItemBottomContainer = styled.div`
   padding: 8px;
 `;
 
-const ItemBedge = styled.div`
-  position: absolute;
-  top: 8px;
-  left: 8px;
-
-  width: fit-content !important;
-  padding: 2px 4px;
-
-  color: #ffffff;
-  background-color: #ff4fa1;
-  font-weight: bold;
-  border-radius: 6px;
-`;
-
 const ItemImgContainer = styled.div`
   position: relative;
 
@@ -99,7 +89,7 @@ const ItemWrapper = styled.div`
   height: 200px;
   padding: 0;
 
-  border:none;
+  border: none;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);

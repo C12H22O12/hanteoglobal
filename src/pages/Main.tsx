@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <MainContainer>
       <Header />
-      <Banner.Slider />
+      <Banner.Body />
       <CurationList />
     </MainContainer>
   );
@@ -17,4 +17,4 @@ export default Main;
 
 const MainContainer = styled.div`
   width: 100dvw;
-`
+`;

@@ -1,19 +1,15 @@
 import styled from "styled-components";
-import Item from "./Item";
-import axios from "axios";
 import "@/mocks/banners";
+import { PropsWithChildren } from "react";
 
-const Slider = () => {
-  axios.get("/banners").then((response) => {
-    console.log(response);
-  });
+interface SliderProps extends PropsWithChildren {
+  cnt: number;
+}
 
+const Slider = ({ children }: SliderProps) => {
   return (
     <SliderContainer>
-      <SliderWrapper>
-        <Item />
-        <Item />
-      </SliderWrapper>
+      <SliderWrapper>{children}</SliderWrapper>
       <SliderPageContainer></SliderPageContainer>
     </SliderContainer>
   );
