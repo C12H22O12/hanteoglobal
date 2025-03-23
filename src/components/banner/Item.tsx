@@ -91,7 +91,7 @@ const ItemImgContainer = styled.div`
   }
 `;
 
-const ItemWrapper = styled.button`
+const ItemWrapper = styled.div`
   display: grid;
   grid-template-rows: 7fr 3fr;
 
